@@ -6,14 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>自己紹介</title>
         <link rel="stylesheet" href="css/style.css" />
+        <script src="jquery.min.js"></script>
     </head>
     <body>
         <!-- ヘッダー -->
         <header id="header">
-            <img class="icon" src="../lesson2/images/img.jpg" alt="写真" />
+            <img class="icon" src="./images/img.jpg" alt="写真" />
             <nav id="nav-pc">
-                <a href="index.html#self-introduction">自己紹介</a>
-                <a href="index.html#gallery">ギャラリー</a>
+                <a href="#menu1">自己紹介</a>
+                <a href="#menu2">ギャラリー</a>
             </nav>
         </header>
 
@@ -22,20 +23,16 @@
         <!-- キービジュアル -->
         <img
             class="keyvisual"
-            src="../lesson2/images/keyvisual.jpg"
+            src="./images/keyvisual.jpg"
             alt="キービジュアル"
         />
         <!-- 自己紹介 -->
         <div class="body">
-            <section id="self-introduction">
+            <section id="menu1">
                 <h2 class="h2margin">自己紹介</h2>
 
                 <div class="container">
-                    <img
-                        class="item02"
-                        src="../lesson2/images/img.jpg"
-                        alt="写真"
-                    />
+                    <img class="item02" src="./images/img.jpg" alt="写真" />
                     <div class="item03">
                         <p>名前：小山大樹</p>
                         <p>年齢：25歳</p>
@@ -54,46 +51,85 @@
             <!-- ギャラリーブロック -->
 
             <section id="gallery">
-                <h2 class="h2margin">ギャラリー</h2>
+                <h2 class="h2margin" id="menu2">ギャラリー</h2>
 
                 <div class="img_contents">
-                    <img
-                        class="img"
-                        src="../lesson2/images/img1.jpg"
-                        alt="写真"
-                    />
+                    <img class="img" src="./images/img1.jpg" alt="写真" />
                     <div class="h2"><span class="white">ギャラリー1</span></div>
                 </div>
                 <p class="center">
                     こんにちわ。こんにちわ。こんにちわ。こんにちわ。こんにちわ。こんにちわ。こんにちわ。こんにちわ。
                 </p>
                 <div class="img_contents">
-                    <img
-                        class="img"
-                        src="../lesson2/images/img2.jpg"
-                        alt="写真"
-                    />
+                    <img class="img" src="./images/img2.jpg" alt="写真" />
                     <div class="h2"><span class="white">ギャラリー2</span></div>
                 </div>
                 <p class="center">
                     こんにちわ。こんにちわ。こんにちわ。こんにちわ。こんにちわ。こんにちわ。こんにちわ。こんにちわ。
                 </p>
                 <div class="img_contents">
-                    <img
-                        class="img"
-                        src="../lesson2/images/img3.jpg"
-                        alt="写真"
-                    />
+                    <img class="img" src="./images/img3.jpg" alt="写真" />
                     <div class="h2"><span class="white">ギャラリー3</span></div>
                 </div>
                 <p class="center">
                     こんにちわ。こんにちわ。こんにちわ。こんにちわ。こんにちわ。こんにちわ。こんにちわ。こんにちわ。
                 </p>
             </section>
+            <!-- スキル -->
+
+            <section>
+                <div class="skil1">HTML/CSS ★★★</div>
+                <div class="test1">表示・非表示</div>
+                <div class="skil2">javaScript ★★☆</div>
+                <div class="test2">表示・非表示</div>
+                <div class="skil3">jquery ★★☆</div>
+                <div class="test3">表示・非表示</div>
+            </section>
         </div>
         <footer>
-            <img class="fotterimg" src="../lesson2/images/img.jpg" alt="写真" />
-            <a class="toptoback" href="index.html#header">TOPへ</a>
+            <img class="fotterimg" src="./images/img.jpg" alt="写真" />
+            <a class="toptoback" href="#">TOPへ</a>
         </footer>
+        <script>
+            $(function () {
+                $('a[href^="#"]').click(function () {
+                    var speed = 500;
+                    var href = $(this).attr("href");
+                    var target = $(href == "#" || href == "" ? "html" : href);
+                    var position = target.offset().top;
+                    $("html, body").animate(
+                        { scrollTop: position },
+                        speed,
+                        "swing"
+                    );
+                    return false;
+                });
+            });
+        </script>
+
+        <script>
+            $(function () {
+                $(".test1").hide();
+                $(".skil1").on("click", function () {
+                    $(".test1").show();
+                });
+            });
+        </script>
+        <script>
+            $(function () {
+                $(".test2").hide();
+                $(".skil2").on("click", function () {
+                    $(".test2").show();
+                });
+            });
+        </script>
+        <script>
+            $(function () {
+                $(".test3").hide();
+                $(".skil3").on("click", function () {
+                    $(".test3").show();
+                });
+            });
+        </script>
     </body>
 </html>
